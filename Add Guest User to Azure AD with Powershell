@@ -1,0 +1,9 @@
+	//Run Powershell as admin
+  //Install Module for Azure AD
+		Install-Module -Name AzureAD
+	//Connect to Azure Tenant
+		Connect-AzureAD -TenantDomain "[Azure AD Address]"
+	//Add Guest User and don’t send email
+		New-AzureADMSInvitation -InvitedUserDisplayName "[Name of User]" -InvitedUserEmailAddress [Users Email] -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $false
+	//View Azure Guest List
+    Get-AzureADUser -Filter "UserType eq 'Guest'"
